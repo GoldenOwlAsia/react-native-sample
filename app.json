@@ -1,25 +1,21 @@
 {
   "expo": {
-    "name": "pollenwallet",
-    "description": "A very interesting project.",
-    "slug": "pollenwallet",
+    "name": "react-native-boilerplate",
+    "description": "A React Native boilerplate with Expo, Redux, React Navigation and some 💕 included.",
+    "slug": "react-native-boilerplate",
     "privacy": "public",
-    "sdkVersion": "26.0.0",
-    "platforms": ["ios", "android"],
+    "sdkVersion": "25.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+    "primaryColor": "#cccccc",
+    "icon": "./assets/icons/app.png",
+    "loading": {
+      "icon": "./assets/icons/loading.png",
+      "hideExponentText": false
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4"]
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
       "supportsTablet": true
     }
