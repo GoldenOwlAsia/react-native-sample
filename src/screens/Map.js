@@ -79,6 +79,11 @@ class MapScreen extends Component {
     return [];
   }
 
+  onMarkerPress(shop) {
+    console.log('onMarketPress', shop)
+    this.props.navigation.navigate('Shop');
+  }
+
   render() {
     let text = 'Waiting..';
     if (this.state.errorMessage) {
@@ -103,6 +108,7 @@ class MapScreen extends Component {
               coordinate={marker.latlng}
               title={marker.name}
               description={marker.name}
+              onCalloutPress={this.onMarkerPress.bind(this, marker)}
             />
           ))}
         </MapView>

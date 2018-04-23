@@ -13,6 +13,7 @@ import ProfileScreen from './screens/Profile';
 import FavoritesScreen from './screens/Favorites';
 import MapScreen from './screens/Map';
 import SettingsScreen from './screens/Settings';
+import ShopScreen from './screens/Shop';
 
 import { HamburgerIcon, SettingsIcon, BackIcon } from './components/icons';
 
@@ -108,6 +109,7 @@ const AppMainTab = TabNavigator({
 const AppMainStack = StackNavigator({
   Home: { screen: AppMainTab },
   Settings: { screen: SettingsScreen },
+  Shop: { screen: ShopScreen },
 }, {
   cardStyle: {
     backgroundColor: colors.PINK_50,
