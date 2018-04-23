@@ -109,7 +109,17 @@ const AppMainTab = TabNavigator({
 const AppMainStack = StackNavigator({
   Home: { screen: AppMainTab },
   Settings: { screen: SettingsScreen },
-  Shop: { screen: ShopScreen },
+  Shop: {
+    screen: ShopScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerStyle: {
+        backgroundColor: colors.PINK_100,
+      },
+      headerTitleStyle: {
+        color: colors.WHITE,
+      },
+    }),
+  },
 }, {
   cardStyle: {
     backgroundColor: colors.PINK_50,

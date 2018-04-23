@@ -40,8 +40,8 @@ class HomeScreen extends Component {
     super(props);
     this.renderRow = this.renderRow.bind(this);
   }
+
   renderRow(shop) {
-    console.log('rendering shop', shop);
     return (
       <Row styleName="small">
         <Icon name="home" />

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { WebView } from 'react-native';
 import styled from 'styled-components/native';
 import { colors } from '../utils/constants';
 
 const ContainerView = styled.View`
   flex: 1;
+  flexDirection: row;
   justifyContent: center;
   alignItems: center;
 `;
@@ -17,8 +19,13 @@ class ShopScreen extends Component {
   render() {
     return (
       <ContainerView>
-        <TitleText>Shop</TitleText>
-        
+        <WebView
+          source={{uri: 'https://pollenshops.com/'}}
+          startInLoadingState
+          scalesPageToFit
+          javaScriptEnabled
+          style={{ flex: 1 }}
+        />
       </ContainerView>
     );
   }
