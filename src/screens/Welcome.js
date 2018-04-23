@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import { FormattedWrapper, FormattedMessage } from 'react-native-globalize';
-
-import { Button } from '../components';
+import { Button, Title, ListView, View, Tile, ImageBackground, Subtitle, Divider, Text, Row, Icon } from '@shoutem/ui';
 import messages from '../Messages';
 
 const ContainerView = styled.View`
@@ -14,7 +13,7 @@ const ContainerView = styled.View`
 
 const TitleText = styled.Text`
   fontSize: 30;
-  color: ${props => props.theme.WHITE};
+  color: #fff;
 `;
 
 const ButtonContainer = styled.View`
@@ -25,13 +24,15 @@ class WelcomeScreen extends Component {
     return (
 			<FormattedWrapper locale={this.props.curState.Language.language} messages={messages}>
       <ContainerView>
-				<TitleText>
+				<Title>
 				  <FormattedMessage
             message="Welcome"
           />
-				  </TitleText>
+				</Title>
         <ButtonContainer>
-          <Button text="Go to main" onPress={() => this.props.navigation.navigate('Main')} />
+          <Button onPress={() => this.props.navigation.navigate('Main')}>
+            <Text>Go to main</Text>
+          </Button>
         </ButtonContainer>
       </ContainerView>
 			</FormattedWrapper>

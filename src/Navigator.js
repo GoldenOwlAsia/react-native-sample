@@ -11,6 +11,7 @@ import WelcomeScreen from './screens/Welcome';
 import HomeScreen from './screens/Home';
 import ProfileScreen from './screens/Profile';
 import FavoritesScreen from './screens/Favorites';
+import MapScreen from './screens/Map';
 import SettingsScreen from './screens/Settings';
 
 import { HamburgerIcon, SettingsIcon, BackIcon } from './components/icons';
@@ -22,7 +23,7 @@ const AppMainTab = TabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: ({ navigation }) => ({
-      drawerLabel: 'Sweet home',
+      drawerLabel: 'Pollen',
       drawerIcon: ({ tintColor }) => (
         <FontAwesome name="home" size={23} color={tintColor} />
       ),
@@ -33,7 +34,7 @@ const AppMainTab = TabNavigator({
       headerStyle: {
         backgroundColor: colors.PINK_100,
       },
-      headerTitle: 'Sweet Home',
+      headerTitle: 'Pollen',
       headerTitleStyle: {
         color: colors.WHITE,
       },
@@ -41,20 +42,20 @@ const AppMainTab = TabNavigator({
     })
   },
   Favorites: {
-    screen: FavoritesScreen,
+    screen: MapScreen,
     navigationOptions: ({ navigation }) => ({
-      drawerLabel: 'Favorites',
+      drawerLabel: 'Nearby',
       drawerIcon: ({ tintColor }) => (
-        <FontAwesome name="heartbeat" size={23} color={tintColor} />
+        <FontAwesome name="map" size={23} color={tintColor} />
       ),
-      tabBarLabel: 'Favorites',
+      tabBarLabel: 'Nearby',
       tabBarIcon: ({ tintColor }) => (
-        <FontAwesome name="heartbeat" size={23} color={tintColor} />
+        <FontAwesome name="map" size={23} color={tintColor} />
       ),
       headerStyle: {
         backgroundColor: colors.PINK_100,
       },
-      headerTitle: 'Favorites',
+      headerTitle: 'Nearby',
       headerTitleStyle: {
         color: colors.WHITE,
       },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { DrawerItems } from 'react-navigation';
 import styled from 'styled-components/native';
+import {colors} from '../utils/constants';
 
 import Button from './Button';
 
@@ -23,7 +24,7 @@ const Avatar = styled.View`
   width: 120;
   height: 120;
   borderRadius: 60;
-  backgroundColor: ${props => props.theme.PINK_100};
+  backgroundColor: ${colors.PINK_100};
 `;
 
 const ItemContainer = styled.View`
