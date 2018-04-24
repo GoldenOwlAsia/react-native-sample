@@ -1,4 +1,1 @@
-import {
-  AUTH_SUCCESS,
-  AUTH_FAIL,
-} from './types.js';
+import { AUTH_SUCCESS, AUTH_FAIL } from "./types.js";

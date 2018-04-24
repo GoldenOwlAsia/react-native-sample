@@ -1,30 +1,43 @@
-import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
-import styled from 'styled-components/native';
-import { Screen, ListView, View, Tile, ImageBackground, Title, Subtitle, Divider, Text, Row, Icon, Button } from '@shoutem/ui';
-import { graphql } from 'react-apollo';
-import { ShopQuery } from '../lib/queries';
+import React, { Component } from "react";
+import { StyleSheet } from "react-native";
+import PropTypes from "prop-types";
+import styled from "styled-components/native";
+import {
+  Screen,
+  ListView,
+  View,
+  Tile,
+  ImageBackground,
+  Title,
+  Subtitle,
+  Divider,
+  Text,
+  Row,
+  Icon,
+  Button
+} from "@shoutem/ui";
+import { graphql } from "react-apollo";
+import { ShopQuery } from "../lib/queries";
 
 const ContainerView = styled.View`
   flex: 1;
-  justifyContent: center;
-  alignItems: center;
+  justifycontent: center;
+  alignitems: center;
 `;
 
 const TitleText = styled.Text`
-  fontSize: 30;
+  fontsize: 30;
   color: #fff;
 `;
 
 const StyledRow = styled(Row)`
-  backgroundColor: #fff;
-`
+  backgroundcolor: #fff;
+`;
 
 const styles = StyleSheet.create({
   row: {
-    backgroundColor: '#fff',
-  },
+    backgroundColor: "#fff"
+  }
 });
 
 class HomeScreen extends Component {
@@ -32,9 +45,9 @@ class HomeScreen extends Component {
     data: PropTypes.shape({
       loading: PropTypes.bool,
       error: PropTypes.object,
-      allShops: PropTypes.array,
-    }).isRequired,
-  }
+      allShops: PropTypes.array
+    }).isRequired
+  };
 
   constructor(props) {
     super(props);
@@ -42,7 +55,7 @@ class HomeScreen extends Component {
   }
 
   onShopPress(shop) {
-    this.props.navigation.navigate('Shop', {shop});
+    this.props.navigation.navigate("Shop", { shop });
   }
 
   renderRow(shop) {
@@ -57,23 +70,27 @@ class HomeScreen extends Component {
   }
 
   render() {
-    
     if (this.props.data.loading) {
-      return (<View><Text>Loading</Text></View>)
+      return (
+        <View>
+          <Text>Loading</Text>
+        </View>
+      );
     }
-  
+
     if (this.props.data.error) {
-      return (<View><Text>An unexpected error occurred</Text></View>)
+      return (
+        <View>
+          <Text>An unexpected error occurred</Text>
+        </View>
+      );
     }
 
     const shops = this.props.data.allShops;
 
     return (
       <Screen>
-        <ListView
-          data={shops}
-          renderRow={this.renderRow.bind(this)}
-        />
+        <ListView data={shops} renderRow={this.renderRow.bind(this)} />
       </Screen>
     );
   }

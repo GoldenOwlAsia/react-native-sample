@@ -31,13 +31,13 @@ const LoadingText = styled.Text`
 `;
 
 const Root = styled.View`
-flex: 1;
-background-color: ${colors.PINK_50};
+  flex: 1;
+  background-color: ${colors.PINK_50};
 `;
 
 const StatusBarAndroid = styled.View`
-height: 24;
-background-color: ${colors.PINK_200};
+  height: 24;
+  background-color: ${colors.PINK_200};
 `;
 
 class RootContainer extends Component {

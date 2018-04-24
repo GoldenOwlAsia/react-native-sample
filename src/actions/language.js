@@ -1,11 +1,9 @@
-import {
-	LANGUAGE_CHANGE,
-  } from './types';
+import { LANGUAGE_CHANGE } from "./types";
 
 function changeLanguage(language) {
-	return {
-	  type: LANGUAGE_CHANGE,
-	  payload: {language},
-	}
-  }
-export {changeLanguage}
+  return {
+    type: LANGUAGE_CHANGE,
+    payload: { language }
+  };
+}
+export { changeLanguage };

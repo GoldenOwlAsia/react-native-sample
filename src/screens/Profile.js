@@ -1,22 +1,34 @@
-import React, { Component } from 'react';
-import styled from 'styled-components/native';
-import { colors } from '../utils/constants';
-import { Button, Title, ListView, View, Tile, ImageBackground, Subtitle, Divider, Text, Row, Icon } from '@shoutem/ui';
+import React, { Component } from "react";
+import styled from "styled-components/native";
+import { colors } from "../utils/constants";
+import {
+  Button,
+  Title,
+  ListView,
+  View,
+  Tile,
+  ImageBackground,
+  Subtitle,
+  Divider,
+  Text,
+  Row,
+  Icon
+} from "@shoutem/ui";
 
 const ContainerView = styled.View`
   flex: 1;
-  justifyContent: center;
-  alignItems: center;
+  justifycontent: center;
+  alignitems: center;
 `;
 
 const TitleText = styled.Text`
-  fontSize: 30;
+  fontsize: 30;
   color: ${colors.WHITE};
 `;
 
 const ButtonContainer = styled.View`
   top: 100;
-`
+`;
 
 class ProfileScreen extends Component {
   render() {
@@ -24,7 +36,7 @@ class ProfileScreen extends Component {
       <ContainerView>
         <TitleText>Profile</TitleText>
         <ButtonContainer>
-          <Button onPress={() => this.props.navigation.navigate('Scan')}>
+          <Button onPress={() => this.props.navigation.navigate("Scan")}>
             <Text>Scan QR code</Text>
           </Button>
         </ButtonContainer>

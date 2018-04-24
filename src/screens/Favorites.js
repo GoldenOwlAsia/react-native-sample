@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import styled from 'styled-components/native';
-
+import React, { Component } from "react";
+import styled from "styled-components/native";
 
 const ContainerView = styled.View`
   flex: 1;
-  justifyContent: center;
-  alignItems: center;
+  justifycontent: center;
+  alignitems: center;
 `;
 
 const TitleText = styled.Text`
-  fontSize: 30;
+  fontsize: 30;
   color: ${props => props.theme.WHITE};
 `;
 

@@ -1,5 +1,3 @@
-import ShopQuery from './shops';
+import ShopQuery from "./shops";
 
-export {
-  ShopQuery,
-};
+export { ShopQuery };
