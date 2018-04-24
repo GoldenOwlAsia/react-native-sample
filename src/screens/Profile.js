@@ -24,7 +24,7 @@ class ProfileScreen extends Component {
       <ContainerView>
         <TitleText>Profile</TitleText>
         <ButtonContainer>
-          <Button onPress={() => this.props.navigation.navigate('Main')}>
+          <Button onPress={() => this.props.navigation.navigate('Scan')}>
             <Text>Scan QR code</Text>
           </Button>
         </ButtonContainer>

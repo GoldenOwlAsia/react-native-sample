@@ -14,6 +14,7 @@ import FavoritesScreen from './screens/Favorites';
 import MapScreen from './screens/Map';
 import SettingsScreen from './screens/Settings';
 import ShopScreen from './screens/Shop';
+import ScanScreen from './screens/Scan';
 
 import { HamburgerIcon, SettingsIcon, BackIcon } from './components/icons';
 
@@ -120,6 +121,17 @@ const AppMainStack = StackNavigator({
       },
     }),
   },
+  Scan: {
+    screen: ScanScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerStyle: {
+        backgroundColor: colors.PINK_100,
+      },
+      headerTitleStyle: {
+        color: colors.WHITE,
+      },
+    }),
+  }
 }, {
   cardStyle: {
     backgroundColor: colors.PINK_50,
