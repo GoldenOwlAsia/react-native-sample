@@ -13,47 +13,39 @@ import { colors } from '../utils/constants';
 import { Button, Title, ListView, View, Tile, ImageBackground, Subtitle, Divider, Text, Row, Icon } from '@shoutem/ui';
 import { BarCodeScanner, Permissions } from 'expo';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#000',
-  },
-  bottomBar: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    padding: 15,
-    flexDirection: 'row',
-  },
-  url: {
-    flex: 1,
-  },
-  urlText: {
-    color: '#fff',
-    fontSize: 20,
-  },
-  cancelButton: {
-    marginLeft: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cancelButtonText: {
-    color: 'rgba(255,255,255,0.8)',
-    fontSize: 18,
-  },
-});
-
-
 const ContainerView = styled.View`
   flex: 1;
   justifyContent: center;
   alignItems: center;
 `;
 
+const BottomBar = styled.View`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backgroundColor: rgba(0,0,0,0.5);
+  padding: 15;
+  flexDirection: row;
+`;
+
+const Url = styled(Button)`
+  flex: 1;
+`;
+
+const UrlText = styled(Text)`
+  color: #fff;
+  fontSize: 20,
+`;
+const CancelButton = styled(Button)`
+  marginLeft: 10,
+  alignItems: center;
+  justifyContent: center;
+`;
+const CancelButtonText = styled(Text)`
+  color: rgba(255,255,255,0.8);
+  fontSize: 18;
+`;
 
 export default class ScanScreen extends Component {
   state = {
@@ -82,7 +74,6 @@ export default class ScanScreen extends Component {
   render() {
     return (
       <ContainerView>
-
         {this.state.hasCameraPermission === null
           ? <Text>Requesting for camera permission</Text>
           : this.state.hasCameraPermission === false
@@ -98,7 +89,6 @@ export default class ScanScreen extends Component {
                 />}
 
         {this._maybeRenderUrl()}
-
         <StatusBar hidden />
       </ContainerView>
     );
@@ -129,20 +119,19 @@ export default class ScanScreen extends Component {
     }
 
     return (
-      <View style={styles.bottomBar}>
-        <TouchableOpacity style={styles.url} onPress={this._handlePressUrl}>
-          <Text numberOfLines={1} style={styles.urlText}>
+      <BottomBar>
+        <Url onPress={this._handlePressUrl}>
+          <UrlText numberOfLines={1}>
             {this.state.lastScannedUrl}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.cancelButton}
+          </UrlText>
+        </Url>
+        <CancelButton
           onPress={this._handlePressCancel}>
-          <Text style={styles.cancelButtonText}>
+          <CancelButtonText>
             Cancel
-          </Text>
-        </TouchableOpacity>
-      </View>
+          </CancelButtonText>
+        </CancelButton>
+      </BottomBar>
     );
   };
 }

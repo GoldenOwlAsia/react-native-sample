@@ -124,6 +124,7 @@ const AppMainStack = StackNavigator({
   Scan: {
     screen: ScanScreen,
     navigationOptions: ({ navigation }) => ({
+      headerTitle: 'QRCode Scanner',
       headerStyle: {
         backgroundColor: colors.PINK_100,
       },
