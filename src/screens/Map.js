@@ -50,7 +50,6 @@ class MapScreen extends Component {
   }
 
   _getLocationAsync = async () => {
-    console.log('_getLocationAysnc');
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       this.setState({
@@ -80,8 +79,7 @@ class MapScreen extends Component {
   }
 
   onMarkerPress(shop) {
-    console.log('onMarketPress', shop)
-    this.props.navigation.navigate('Shop');
+    this.props.navigation.navigate('Shop', {shop});
   }
 
   render() {

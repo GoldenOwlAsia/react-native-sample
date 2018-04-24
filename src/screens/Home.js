@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import { Screen, ListView, View, Tile, ImageBackground, Title, Subtitle, Divider, Text, Row, Icon } from '@shoutem/ui';
+import { Screen, ListView, View, Tile, ImageBackground, Title, Subtitle, Divider, Text, Row, Icon, Button } from '@shoutem/ui';
 import { graphql } from 'react-apollo';
 import { ShopQuery } from '../lib/queries';
 
@@ -41,11 +41,17 @@ class HomeScreen extends Component {
     this.renderRow = this.renderRow.bind(this);
   }
 
+  onShopPress(shop) {
+    this.props.navigation.navigate('Shop', {shop});
+  }
+
   renderRow(shop) {
     return (
       <Row styleName="small">
         <Icon name="home" />
-        <Text>{shop.name}</Text>
+        <Button onPress={this.onShopPress.bind(this, shop)}>
+          <Text>{shop.name}</Text>
+        </Button>
       </Row>
     );
   }
@@ -57,7 +63,6 @@ class HomeScreen extends Component {
     }
   
     if (this.props.data.error) {
-      console.log(this.props.data.error)
       return (<View><Text>An unexpected error occurred</Text></View>)
     }
 
@@ -67,7 +72,7 @@ class HomeScreen extends Component {
       <Screen>
         <ListView
           data={shops}
-          renderRow={this.renderRow}
+          renderRow={this.renderRow.bind(this)}
         />
       </Screen>
     );
