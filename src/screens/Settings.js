@@ -6,16 +6,17 @@ import { FormattedWrapper, FormattedMessage } from "react-native-globalize";
 import { changeLanguage } from "../actions";
 import { Button } from "../components";
 import messages from "../Messages";
+import { colors } from "../utils/constants";
 
 const ContainerView = styled.View`
   flex: 1;
-  justifycontent: center;
-  alignitems: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TitleText = styled.Text`
-  fontsize: 30;
-  color: ${props => props.theme.WHITE};
+  font-size: 30;
+  color: ${colors.WHITE};
 `;
 
 class SettingsScreen extends Component {

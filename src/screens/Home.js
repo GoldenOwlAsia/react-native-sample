@@ -21,24 +21,18 @@ import { ShopQuery } from "../lib/queries";
 
 const ContainerView = styled.View`
   flex: 1;
-  justifycontent: center;
-  alignitems: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TitleText = styled.Text`
-  fontsize: 30;
+  font-size: 30;
   color: #fff;
 `;
 
 const StyledRow = styled(Row)`
-  backgroundcolor: #fff;
+  background-color: #fff;
 `;
-
-const styles = StyleSheet.create({
-  row: {
-    backgroundColor: "#fff"
-  }
-});
 
 class HomeScreen extends Component {
   static propTypes = {

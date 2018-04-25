@@ -17,12 +17,12 @@ import {
 
 const ContainerView = styled.View`
   flex: 1;
-  justifycontent: center;
-  alignitems: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TitleText = styled.Text`
-  fontsize: 30;
+  font-size: 30;
   color: ${colors.WHITE};
 `;
 

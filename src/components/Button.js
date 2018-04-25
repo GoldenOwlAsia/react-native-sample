@@ -6,14 +6,14 @@ import { colors } from "../utils/constants";
 const ButtonContainer = styled.TouchableHighlight`
   width: 130;
   height: 40;
-  backgroundcolor: ${colors.PINK_100};
-  borderradius: 5;
-  justifycontent: center;
-  alignitems: center;
+  background-color: ${colors.PINK_100};
+  border-radius: 5;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Text = styled.Text`
-  fontsize: 20;
+  font-size: 20;
   color: ${colors.WHITE};
 `;
 

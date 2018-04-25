@@ -27,8 +27,8 @@ import { BarCodeScanner, Permissions } from "expo";
 
 const ContainerView = styled.View`
   flex: 1;
-  justifycontent: center;
-  alignitems: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 const BottomBar = styled.View`
@@ -36,9 +36,9 @@ const BottomBar = styled.View`
   bottom: 0;
   left: 0;
   right: 0;
-  backgroundcolor: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 15;
-  flexdirection: row;
+  flex-direction: row;
 `;
 
 const Url = styled(Button)`
@@ -47,16 +47,16 @@ const Url = styled(Button)`
 
 const UrlText = styled(Text)`
   color: #fff;
-  fontsize: 20;
+  font-size: 20;
 `;
 const CancelButton = styled(Button)`
-  marginLeft: 10,
-  alignItems: center;
-  justifyContent: center;
+  margin-left: 10,
+  align-items: center;
+  justify-content: center;
 `;
 const CancelButtonText = styled(Text)`
   color: rgba(255, 255, 255, 0.8);
-  fontsize: 18;
+  font-size: 18;
 `;
 
 export default class ScanScreen extends Component {

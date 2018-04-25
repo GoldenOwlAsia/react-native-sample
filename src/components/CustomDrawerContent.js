@@ -1,9 +1,9 @@
-import React from 'react';
-import { DrawerItems } from 'react-navigation';
-import styled from 'styled-components/native';
-import {colors} from '../utils/constants';
+import React from "react";
+import { DrawerItems } from "react-navigation";
+import styled from "styled-components/native";
+import { colors } from "../utils/constants";
 
-import Button from './Button';
+import Button from "./Button";
 
 const ContainerView = styled.View`
   flex: 1;
@@ -16,15 +16,15 @@ const DrawerContainer = styled.View`
 const AvatarContainer = styled.View`
   flex: 4;
   top: 30;
-  alignItems: center;
-  justifyContent: center;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Avatar = styled.View`
   width: 120;
   height: 120;
-  borderRadius: 60;
-  backgroundColor: ${colors.PINK_100};
+  border-radius: 60;
+  background-color: ${colors.PINK_100};
 `;
 
 const ItemContainer = styled.View`
@@ -33,11 +33,11 @@ const ItemContainer = styled.View`
 
 const ButtonContainer = styled.View`
   flex: 2;
-  justifyContent: center;
-  alignItems: center;
+  justify-content: center;
+  align-items: center;
 `;
 
-const CustomDrawerContent = (props) => (
+const CustomDrawerContent = props => (
   <ContainerView>
     <DrawerContainer>
       <AvatarContainer>
@@ -48,7 +48,10 @@ const CustomDrawerContent = (props) => (
       </ItemContainer>
     </DrawerContainer>
     <ButtonContainer>
-      <Button text="Logout" onPress={() => props.navigation.navigate('Welcome')} />
+      <Button
+        text="Logout"
+        onPress={() => props.navigation.navigate("Welcome")}
+      />
     </ButtonContainer>
   </ContainerView>
 );
