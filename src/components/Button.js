@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { withTheme } from "styled-components";
 import styled from "styled-components/native";
 import { colors } from "../utils/constants";
 
 const ButtonContainer = styled.TouchableHighlight`
   width: 130;
   height: 40;
-  background-color: ${colors.PINK_100};
+  background-color: ${colors.BLUE_100};
   border-radius: 5;
   justify-content: center;
   align-items: center;
@@ -22,11 +21,11 @@ class Button extends Component {
     const { text, onPress, theme } = this.props;
 
     return (
-      <ButtonContainer underlayColor={colors.PINK_200} onPress={onPress}>
+      <ButtonContainer underlayColor={colors.BLUE_200} onPress={onPress}>
         <Text>{text}</Text>
       </ButtonContainer>
     );
   }
 }
 
-export default withTheme(Button);
+export default Button;

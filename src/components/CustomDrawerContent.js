@@ -24,7 +24,7 @@ const Avatar = styled.View`
   width: 120;
   height: 120;
   border-radius: 60;
-  background-color: ${colors.PINK_100};
+  background-color: ${colors.BLUE_100};
 `;
 
 const ItemContainer = styled.View`
