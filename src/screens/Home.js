@@ -49,7 +49,7 @@ class HomeScreen extends Component {
   }
 
   onShopPress(shop) {
-    this.props.navigation.navigate("Shop", { shop });
+    this.props.navigation.navigate("Map", { shop });
   }
 
   renderRow(shop) {

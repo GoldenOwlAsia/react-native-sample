@@ -30,13 +30,39 @@ class MapScreen extends Component {
 
   constructor(props) {
     super(props);
+
+    const { coords, selectedId } = this.extractDataFromNav(props.navigation);
     this.state = {
-      coords: {
-        latitude: 1.3096036,
-        longitude: 103.8536703
-      },
-      errorMessage: null
+      coords,
+      errorMessage: null,
+      selectedId
     };
+
+    this.markers = {};
+  }
+
+  extractDataFromNav(navigation) {
+    const { params } = this.props.navigation.state;
+    const coords =
+      params && params.shop
+        ? { latitude: params.shop.latitude, longitude: params.shop.longitude }
+        : {
+            latitude: 1.3096036,
+            longitude: 103.8536703
+          };
+    const selectedId = params && params.shop ? params.shop.id : null;
+    return {
+      coords,
+      selectedId
+    };
+  }
+
+  componentWillReceiveProps(props) {
+    const { coords, selectedId } = this.extractDataFromNav(props.navigation);
+    this.setState({
+      coords,
+      selectedId
+    });
   }
 
   componentWillMount() {
@@ -59,7 +85,6 @@ class MapScreen extends Component {
     }
 
     let location = await Location.getCurrentPositionAsync({});
-    console.log("got location", location);
     this.setState({ location });
   };
 
@@ -88,26 +113,31 @@ class MapScreen extends Component {
     if (this.state.errorMessage) {
       text = this.state.errorMessage;
     } else if (this.state.coords) {
-      const { coords } = this.state;
+      const { coords, selectedId } = this.state;
       const nearby = this._getNearbyShops(this.props.data.allShops);
-      console.log("nearby", nearby);
       return (
         <MapView
           style={{ flex: 1 }}
-          initialRegion={{
+          region={{
             latitude: coords.latitude,
             longitude: coords.longitude,
-            latitudeDelta: 0.0222,
-            longitudeDelta: 0.0221
+            latitudeDelta: 0.0112,
+            longitudeDelta: 0.0111
+          }}
+          showsUserLocation
+          onRegionChangeComplete={() => {
+            if (selectedId) {
+              this.markers[`${selectedId}`].showCallout();
+            }
           }}
         >
-          {nearby.map((marker, i) => (
+          {nearby.map((shop, i) => (
             <MapView.Marker
+              ref={ref => (this.markers[`${shop.id}`] = ref)}
               key={i}
-              coordinate={marker.latlng}
-              title={marker.name}
-              description={marker.name}
-              onCalloutPress={this.onMarkerPress.bind(this, marker)}
+              coordinate={shop.latlng}
+              title={shop.name}
+              description={shop.name}
             />
           ))}
         </MapView>

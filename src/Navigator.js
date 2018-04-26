@@ -46,7 +46,7 @@ const AppMainTab = TabNavigator(
         )
       })
     },
-    Favorites: {
+    Map: {
       screen: MapScreen,
       navigationOptions: ({ navigation }) => ({
         drawerLabel: "Nearby",

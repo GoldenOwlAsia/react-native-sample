@@ -37,27 +37,26 @@ const BottomBar = styled.View`
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 15;
   flex-direction: row;
 `;
 
-const Url = styled(Button)`
-  flex: 1;
-`;
+// const Url = styled(Button)`
+//   flex: 1;
+// `;
 
-const UrlText = styled(Text)`
-  color: #fff;
-  font-size: 20;
-`;
-const CancelButton = styled(Button)`
-  margin-left: 10,
-  align-items: center;
-  justify-content: center;
-`;
-const CancelButtonText = styled(Text)`
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 18;
-`;
+// const UrlText = styled(Text)`
+//   color: #fff;
+//   font-size: 20;
+// `;
+// const CancelButton = styled(Button)`
+//   margin-left: 10,
+//   align-items: center;
+//   justify-content: center;
+// `;
+// const CancelButtonText = styled(Text)`
+//   color: rgba(255, 255, 255, 0.8);
+//   font-size: 18;
+// `;
 
 export default class ScanScreen extends Component {
   state = {
@@ -83,31 +82,6 @@ export default class ScanScreen extends Component {
     }
   };
 
-  render() {
-    return (
-      <ContainerView>
-        {this.state.hasCameraPermission === null ? (
-          <Text>Requesting for camera permission</Text>
-        ) : this.state.hasCameraPermission === false ? (
-          <Text style={{ color: "#fff" }}>
-            Camera permission is not granted
-          </Text>
-        ) : (
-          <BarCodeScanner
-            onBarCodeRead={this._handleBarCodeRead}
-            style={{
-              height: Dimensions.get("window").height,
-              width: Dimensions.get("window").width
-            }}
-          />
-        )}
-
-        {this._maybeRenderUrl()}
-        <StatusBar hidden />
-      </ContainerView>
-    );
-  }
-
   _handlePressUrl = () => {
     Alert.alert(
       "Open this URL?",
@@ -127,20 +101,45 @@ export default class ScanScreen extends Component {
     this.setState({ lastScannedUrl: null });
   };
 
-  _maybeRenderUrl = () => {
+  maybeRenderUrl() {
     if (!this.state.lastScannedUrl) {
-      return;
+      return null;
     }
 
     return (
       <BottomBar>
-        <Url onPress={this._handlePressUrl}>
-          <UrlText numberOfLines={1}>{this.state.lastScannedUrl}</UrlText>
-        </Url>
-        <CancelButton onPress={this._handlePressCancel}>
-          <CancelButtonText>Cancel</CancelButtonText>
-        </CancelButton>
+        <Button onPress={this._handlePressUrl}>
+          <Text numberOfLines={1}>{this.state.lastScannedUrl}</Text>
+        </Button>
+        <Button onPress={this._handlePressCancel}>
+          <Text>Cancel</Text>
+        </Button>
       </BottomBar>
     );
-  };
+  }
+
+  render() {
+    return (
+      <ContainerView>
+        {this.state.hasCameraPermission === null ? (
+          <Text>Requesting for camera permission</Text>
+        ) : this.state.hasCameraPermission === false ? (
+          <Text style={{ color: "#fff" }}>
+            Camera permission is not granted
+          </Text>
+        ) : (
+          <BarCodeScanner
+            onBarCodeRead={this._handleBarCodeRead}
+            style={{
+              height: Dimensions.get("window").height,
+              width: Dimensions.get("window").width
+            }}
+          />
+        )}
+
+        {this.maybeRenderUrl()}
+        <StatusBar hidden />
+      </ContainerView>
+    );
+  }
 }
