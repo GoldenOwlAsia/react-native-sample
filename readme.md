@@ -22,15 +22,16 @@
 - [ESLint](https://github.com/eslint/eslint) & [Prettier](https://github.com/prettier/prettier)
 
 ## Getting Started
-Clone this repository
-```
-$ git clone git@github.com:bkdev98/react-native-boilerplate.git new-project
 ```
 Install node modules, [Yarn](https://yarnpkg.com/en/) is highly recommended.
 ```
 $ yarn
 ```
+
+Point backend to `react-native-sample-backend`, `localhost:3000` for example
+
 Open and start project using [Expo XDE](https://expo.io/tools) or use the [CLI](https://github.com/expo/exp) :
+
 ```
 $ exp start
 ```
