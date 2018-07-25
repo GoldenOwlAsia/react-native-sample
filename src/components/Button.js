@@ -16,7 +16,7 @@ const Text = styled.Text`
   color: ${colors.WHITE};
 `;
 
-class Button extends Component {
+class Button extends Component { // eslint-disable-line
   render() {
     const { text, onPress, theme } = this.props;
 

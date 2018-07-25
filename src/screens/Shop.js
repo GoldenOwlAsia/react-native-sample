@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { WebView } from "react-native";
 import styled from "styled-components/native";
-import { colors } from "../utils/constants";
 
 const ContainerView = styled.View`
   flex: 1;
@@ -10,12 +9,7 @@ const ContainerView = styled.View`
   align-items: center;
 `;
 
-const TitleText = styled.Text`
-  font-size: 30;
-  color: ${colors.WHITE};
-`;
-
-class ShopScreen extends Component {
+class ShopScreen extends Component { // eslint-disable-line
   render() {
     return (
       <ContainerView>

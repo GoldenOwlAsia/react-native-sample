@@ -10,6 +10,6 @@ const ShopQuery = gql`
       longitude
     }
   }
-`
+`;
 
 export default ShopQuery;

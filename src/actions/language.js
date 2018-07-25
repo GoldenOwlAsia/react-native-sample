@@ -1,9 +1,8 @@
 import { LANGUAGE_CHANGE } from "./types";
 
-function changeLanguage(language) {
-  return {
-    type: LANGUAGE_CHANGE,
-    payload: { language }
-  };
-}
-export { changeLanguage };
+export const changeLanguage = ({ language }) => ({
+  type: LANGUAGE_CHANGE,
+  payload: { language }
+});
+
+export default { changeLanguage };

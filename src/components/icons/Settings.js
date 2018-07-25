@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import { Ionicons } from '@expo/vector-icons';
+import React from "react";
+import styled from "styled-components/native";
+import { Ionicons } from "@expo/vector-icons";
 
 const IconRightContainer = styled.TouchableOpacity`
   height: 100%;
-  paddingRight: 15;
-  justifyContent: center;
+  padding-right: 15;
+  justify-content: center;
 `;
 
 const Settings = ({ onPress }) => (

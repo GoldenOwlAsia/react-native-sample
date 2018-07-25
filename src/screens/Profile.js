@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import styled from "styled-components/native";
 import { colors } from "../utils/constants";
 import {
@@ -15,22 +15,19 @@ import {
   Icon
 } from "@shoutem/ui";
 
+import TitleText from "../components/TitleText";
+
 const ContainerView = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
 
-const TitleText = styled.Text`
-  font-size: 30;
-  color: ${colors.WHITE};
-`;
-
 const ButtonContainer = styled.View`
   top: 100;
 `;
 
-class ProfileScreen extends Component {
+class ProfileScreen extends Component { // eslint-disable-line
   render() {
     return (
       <ContainerView>

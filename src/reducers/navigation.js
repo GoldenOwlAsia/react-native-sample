@@ -1,4 +1,4 @@
-import Navigator from '../Navigator';
+import Navigator from "../Navigator";
 
 const initialState = Navigator.router.getStateForAction(
   Navigator.router.getActionForPathAndParams("Main")

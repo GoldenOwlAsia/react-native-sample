@@ -104,7 +104,7 @@ const client = new ApolloClient({
   cache
 });
 const ConnectedRootContainer = connect(mapStateToProps, null)(RootContainer);
-class App extends Component {
+class App extends Component { // eslint-disable-line
   render() {
     return (
       <ApolloProvider client={client}>

@@ -23,15 +23,10 @@ const ContainerView = styled.View`
   align-items: center;
 `;
 
-const TitleText = styled.Text`
-  font-size: 30;
-  color: #fff;
-`;
-
 const ButtonContainer = styled.View`
   top: 100;
 `;
-class WelcomeScreen extends Component {
+class WelcomeScreen extends Component { // eslint-disable-line
   render() {
     return (
       <FormattedWrapper
@@ -57,4 +52,4 @@ const mapStateToProps = state => ({
   curState: state
 });
 
-export default connect(mapStateToProps, {})(WelcomeScreen);
+export default connect(mapStateToProps, null)(WelcomeScreen);

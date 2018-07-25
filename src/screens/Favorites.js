@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components/native";
+import TitleText from "../components/TitleText";
 
 const ContainerView = styled.View`
   flex: 1;
@@ -7,12 +8,7 @@ const ContainerView = styled.View`
   align-items: center;
 `;
 
-const TitleText = styled.Text`
-  fontsize: 30;
-  color: ${props => props.theme.WHITE};
-`;
-
-class FavoritesScreen extends Component {
+class FavoritesScreen extends Component { // eslint-disable-line
   render() {
     return (
       <ContainerView>

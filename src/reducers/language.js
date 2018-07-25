@@ -1,9 +1,9 @@
 import {
 	LANGUAGE_CHANGE,
-  } from '../actions/types';
+  } from "../actions/types";
 
   const INITIAL_STATE = {
-	language: 'en',
+		language: "en",
   };
 
   const Language = (state = INITIAL_STATE, action) => {
@@ -15,5 +15,6 @@ import {
 	  default:
 		return state;
 	}
-  }
-  export default Language;
+}
+
+export default Language;

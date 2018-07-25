@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components/native";
-import { FormattedWrapper, FormattedMessage } from "react-native-globalize";
+import { FormattedWrapper, FormattedMessage, PropTypes } from "react-native-globalize";
 
-import { changeLanguage } from "../actions";
+import { changeLanguage } from "../actions/language";
 import { Button } from "../components";
 import messages from "../Messages";
-import { colors } from "../utils/constants";
+import TitleText from "../components/TitleText";
 
 const ContainerView = styled.View`
   flex: 1;
@@ -14,12 +14,7 @@ const ContainerView = styled.View`
   align-items: center;
 `;
 
-const TitleText = styled.Text`
-  font-size: 30;
-  color: ${colors.WHITE};
-`;
-
-class SettingsScreen extends Component {
+class SettingsScreen extends Component { // eslint-disable-line
   render() {
     return (
       <FormattedWrapper
@@ -32,9 +27,7 @@ class SettingsScreen extends Component {
           </TitleText>
           <Button
             text="Change language to es"
-            onPress={() => {
-              this.props.changeLanguage("es");
-            }}
+            onPress={() => this.props.onChangeLanguage("es")}
           />
         </ContainerView>
       </FormattedWrapper>
@@ -46,6 +39,11 @@ const mapStateToProps = state => ({
   curState: state
 });
 
-export default connect(mapStateToProps, {
-  changeLanguage
-})(SettingsScreen);
+const mapDispatchToProps = dispatch => ({
+  onChangeLanguage: language => dispatch(changeLanguage(language))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SettingsScreen);

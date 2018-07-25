@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import styled from "styled-components/native";
-import { colors } from "../utils/constants";
 import { Platform, Text, View, StyleSheet } from "react-native";
-import { Constants, Location, Permissions } from "expo";
+import { Constants, Location, Permissions, MapView } from "expo";
 import PropTypes from "prop-types";
-import { MapView } from "expo";
-import { ShopQuery } from "../lib/queries";
 import { graphql } from "react-apollo";
+
+import { colors } from "../utils/constants";
+import { ShopQuery } from "../lib/queries";
+import TitleText from "../components/TitleText";
 
 const ContainerView = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-`;
-
-const TitleText = styled.Text`
-  fontsize: 30;
-  color: ${colors.WHITE};
 `;
 
 class MapScreen extends Component {
@@ -41,20 +37,15 @@ class MapScreen extends Component {
     this.markers = {};
   }
 
-  extractDataFromNav(navigation) {
-    const { params } = this.props.navigation.state;
-    const coords =
-      params && params.shop
-        ? { latitude: params.shop.latitude, longitude: params.shop.longitude }
-        : {
-            latitude: 1.3096036,
-            longitude: 103.8536703
-          };
-    const selectedId = params && params.shop ? params.shop.id : null;
-    return {
-      coords,
-      selectedId
-    };
+  componentWillMount() {
+    if (Platform.OS === "android" && !Constants.isDevice) {
+      this.setState({
+        errorMessage:
+          "Oops, this will not work on Sketch in an Android emulator. Try it on your device!"
+      });
+    } else {
+      this._getLocationAsync();
+    }
   }
 
   componentWillReceiveProps(props) {
@@ -65,15 +56,8 @@ class MapScreen extends Component {
     });
   }
 
-  componentWillMount() {
-    if (Platform.OS === "android" && !Constants.isDevice) {
-      this.setState({
-        errorMessage:
-          "Oops, this will not work on Sketch in an Android emulator. Try it on your device!"
-      });
-    } else {
-      this._getLocationAsync();
-    }
+  onMarkerPress(shop) {
+    this.props.navigation.navigate("Shop", { shop });
   }
 
   _getLocationAsync = async () => {
@@ -104,8 +88,20 @@ class MapScreen extends Component {
     return [];
   }
 
-  onMarkerPress(shop) {
-    this.props.navigation.navigate("Shop", { shop });
+  extractDataFromNav(navigation) {
+    const { params } = this.props.navigation.state;
+    const coords =
+      params && params.shop
+        ? { latitude: params.shop.latitude, longitude: params.shop.longitude }
+        : {
+          latitude: 1.3096036,
+          longitude: 103.8536703
+        };
+    const selectedId = params && params.shop ? params.shop.id : null;
+    return {
+      coords,
+      selectedId
+    };
   }
 
   render() {

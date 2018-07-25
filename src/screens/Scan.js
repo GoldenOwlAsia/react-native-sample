@@ -119,11 +119,13 @@ export default class ScanScreen extends Component {
   }
 
   render() {
+    const { hasCameraPermission } = this.state;
+
     return (
       <ContainerView>
-        {this.state.hasCameraPermission === null ? (
+        {hasCameraPermission === null ? (
           <Text>Requesting for camera permission</Text>
-        ) : this.state.hasCameraPermission === false ? (
+        ) : hasCameraPermission === false ? (
           <Text style={{ color: "#fff" }}>
             Camera permission is not granted
           </Text>

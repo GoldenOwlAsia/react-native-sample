@@ -17,17 +17,14 @@ import {
   Button
 } from "@shoutem/ui";
 import { graphql } from "react-apollo";
+
+import TitleText from "../components/TitleText";
 import { ShopQuery } from "../lib/queries";
 
 const ContainerView = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-`;
-
-const TitleText = styled.Text`
-  font-size: 30;
-  color: #fff;
 `;
 
 const StyledRow = styled(Row)`
@@ -84,7 +81,7 @@ class HomeScreen extends Component {
 
     return (
       <Screen>
-        <ListView data={shops} renderRow={this.renderRow.bind(this)} />
+        <ListView data={shops} renderRow={this.renderRow} />
       </Screen>
     );
   }

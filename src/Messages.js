@@ -1,11 +1,11 @@
 const messages = {
 	en: {
-		Welcome: 'Welcome!',
-		Settings: 'Settings'
+		Welcome: "Welcome!",
+		Settings: "Settings"
 	},
 	es: {
-		Welcome: 'Bienvenido',
-		Settings: 'Configuraciones'
+		Welcome: "Bienvenido",
+		Settings: "Configuraciones"
 	},
-  };
+};
 export default messages;
