@@ -20,6 +20,7 @@ import { graphql } from "react-apollo";
 
 import TitleText from "../components/TitleText";
 import { ShopQuery } from "../lib/queries";
+import styles from './styles.scss';
 
 const ContainerView = styled.View`
   flex: 1;
@@ -51,10 +52,10 @@ class HomeScreen extends Component {
 
   renderRow(shop) {
     return (
-      <Row styleName="small">
+      <Row styleName="small" className={styles.homeRow}>
         <Icon name="home" />
         <Button onPress={this.onShopPress.bind(this, shop)}>
-          <Text>{shop.name}</Text>
+          <Text className={styles.textRow}>{shop.name}</Text>
         </Button>
       </Row>
     );
