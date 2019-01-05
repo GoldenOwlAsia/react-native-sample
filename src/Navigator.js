@@ -1,9 +1,9 @@
 import React from "react";
 import { Platform } from "react-native";
 import {
-  TabNavigator,
-  StackNavigator,
-  DrawerNavigator
+  createBottomTabNavigator,
+  createStackNavigator,
+  createDrawerNavigator
 } from "react-navigation";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
@@ -21,7 +21,7 @@ import { HamburgerIcon, SettingsIcon, BackIcon } from "./components/icons";
 import { CustomDrawerContent } from "./components";
 import { colors } from "./utils/constants";
 
-const AppMainTab = TabNavigator(
+const AppMainTab = createBottomTabNavigator(
   {
     Home: {
       screen: HomeScreen,
@@ -118,7 +118,7 @@ const AppMainTab = TabNavigator(
   }
 );
 
-const AppMainStack = StackNavigator(
+const AppMainStack = createStackNavigator(
   {
     Home: { screen: AppMainTab },
     Settings: { screen: SettingsScreen },
@@ -154,7 +154,7 @@ const AppMainStack = StackNavigator(
   }
 );
 
-const AppDrawer = DrawerNavigator(
+const AppDrawer = createDrawerNavigator(
   {
     Home: {
       screen: AppMainStack
@@ -187,7 +187,7 @@ const AppDrawer = DrawerNavigator(
   }
 );
 
-const Navigator = TabNavigator(
+const Navigator = createBottomTabNavigator(
   {
     Welcome: { screen: WelcomeScreen },
     Main: { screen: AppDrawer }
