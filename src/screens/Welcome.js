@@ -38,7 +38,7 @@ class WelcomeScreen extends Component {
         locale={this.props.curState.Language.language}
         messages={messages}
       >
-        <ContainerView>
+        <ContainerView testID="welcome">
           <Title>
             <FormattedMessage message="Welcome" />
           </Title>

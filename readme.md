@@ -25,3 +25,14 @@ $ expo ios
 $ expo android
 ```
 Open project in any [code](https://code.visualstudio.com/) editors and have fun 🍻
+
+## Test with Detox
+
+# setup
+...
+$ sh detox-setup.sh
+...
+# run test
+...
+$ yarn e2e
+...

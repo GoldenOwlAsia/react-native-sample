@@ -5,6 +5,9 @@
   "author": "bkdev",
   "private": true,
   "main": "main.js",
+  "scripts": {
+    "e2e": "detox test --configuration ios.sim"
+  },
   "dependencies": {
     "@shoutem/theme": "^0.11.1",
     "@shoutem/ui": "^0.23.4",
@@ -28,6 +31,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "detox": "^9.1.2",
+    "detox-expo-helpers": "^0.6.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -38,8 +43,20 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-react-native": "^3.2.1",
+    "expo-detox-hook": "^1.0.10",
+    "mocha": "^5.2.0",
     "prettier": "^1.12.1",
     "prettier-eslint": "^8.8.1",
     "prettier-eslint-cli": "^4.7.1"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim": {
+        "binaryPath": "bin/Exponent.app",
+        "build": "",
+        "type": "ios.simulator",
+        "name": "iPhone 7"
+      }
+    }
   }
 }
