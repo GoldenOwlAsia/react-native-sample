@@ -4,7 +4,7 @@
     "description": "A React Native boilerplate with Expo, Redux, React Navigation and some 💕 included.",
     "slug": "react-native-boilerplate",
     "privacy": "public",
-    "sdkVersion": "31.0.0",
+    "sdkVersion": "33.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
